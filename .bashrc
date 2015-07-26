@@ -9,6 +9,18 @@ if test "$(uname -s)=HP-UX"; then
 	export TERM=xterm
 fi
 
+# set an additional PATH to an distribution specific bin dir
+OS="OS"
+if [ -f /etc/os-release ]; then
+	OS=$(source /etc/os-release; echo $ID$VERSION)
+elif [ -f /etc/SuSE-release ]; then
+	OS="sles$(awk '/VERSION/{print $3}'</etc/SuSE-release )"
+fi
+
+if [ "$OS" != "OS" ] && ! echo "$PATH" | grep -q "$HOME/bin/$OS:" ; then
+	export PATH=$HOME/bin/$OS:$PATH
+fi
+
 if [ ! -n "$NOZSH" ]; then
 	# try to run a locally compiled zsh first
 	[ -x $HOME/bin/zsh ] && exec $HOME/bin/zsh
