@@ -21,10 +21,8 @@ if [ "$OS" != "OS" ] && ! echo "$PATH" | grep -q "$HOME/bin/$OS:" ; then
 	export PATH=$HOME/bin/$OS:$PATH
 fi
 
+# try switching to zsh, which is defined by our PATH
 if [ ! -n "$NOZSH" ]; then
-	# try to run a locally compiled zsh first
-	[ -x $HOME/bin/zsh ] && exec $HOME/bin/zsh
-	# if this fails try executing a system-wide install version
 	which zsh >/dev/null 2>&1 && exec zsh
 fi
 
