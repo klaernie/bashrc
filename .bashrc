@@ -5,6 +5,10 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+if test "$(uname -s)=HP-UX"; then
+	export TERM=xterm
+fi
+
 if [ ! -n "$NOZSH" ]; then
 	# try to run a locally compiled zsh first
 	[ -x $HOME/bin/zsh ] && exec $HOME/bin/zsh
