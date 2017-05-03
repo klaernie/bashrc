@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-if test "$(uname -s)=HP-UX"; then
+if test "$(uname -s)" = "HP-UX"; then
 	export TERM=xterm
 fi
 
