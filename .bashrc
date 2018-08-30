@@ -18,8 +18,10 @@ if [ "$OS" != "OS" ] && ! echo "$PATH" | grep -q "$HOME/bin/$OS:" ; then
 fi
 
 # try switching to zsh, which is defined by our PATH
-if [ ! -n "$NOZSH" ]; then
-	which zsh >/dev/null 2>&1 && exec zsh
+if [ -z "$NOZSH" ] && which zsh >/dev/null 2>&1; then
+	case $- in
+		*i*) exec zsh;;
+	esac
 fi
 
 # don't put duplicate lines in the history. See bash(1) for more options
