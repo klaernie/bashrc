@@ -5,10 +5,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-if test "$(uname -s)" = "HP-UX"; then
-	export TERM=xterm
-fi
-
 # set an additional PATH to an distribution specific bin dir
 OS="OS"
 if [ -f /etc/os-release ]; then
