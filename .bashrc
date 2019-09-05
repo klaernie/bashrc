@@ -82,7 +82,7 @@ export NSS_DEFAULT_DB_TYPE="sql"
 if ! echo "$PATH" | grep -q -e "/sbin:" -e ":/sbin" ; then
 	export PATH=$PATH:/sbin
 fi
-if -d ~/bin/installs/android-sdk-linux_x86/platform-tools && ! echo "$PATH" | grep -q "android-sdk-linux_x86/platform-tools" ; then
+if test -d ~/bin/installs/android-sdk-linux_x86/platform-tools && ! echo "$PATH" | grep -q "android-sdk-linux_x86/platform-tools" ; then
 	export PATH=$PATH:~/bin/installs/android-sdk-linux_x86/platform-tools
 fi
 
