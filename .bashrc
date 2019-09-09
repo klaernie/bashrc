@@ -82,11 +82,3 @@ export NSS_DEFAULT_DB_TYPE="sql"
 if ! echo "$PATH" | grep -q -e "/sbin:" -e ":/sbin" ; then
 	export PATH=$PATH:/sbin
 fi
-if test -d ~/bin/installs/android-sdk-linux_x86/platform-tools && ! echo "$PATH" | grep -q "android-sdk-linux_x86/platform-tools" ; then
-	export PATH=$PATH:~/bin/installs/android-sdk-linux_x86/platform-tools
-fi
-
-alias mutt='echo -ne "\033]0;mutt:${USER}@`hostname`\007";mutt'
-alias NewMailboxes="find ~/Maildir/ -name '*:2,' -exec dirname {} \; | uniq"
-
-alias newmail="vim -c 'set textwidth=75' -c 'set filetype=mail'"
