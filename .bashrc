@@ -18,7 +18,7 @@ if [ "$OS" != "OS" ] && ! echo "$PATH" | grep -q "$HOME/bin/$OS:" ; then
 fi
 
 # try switching to zsh, which is defined by our PATH
-if [ -z "$NOZSH" ] && which zsh >/dev/null 2>&1; then
+if [ -z "$NOZSH" ] && [[ $(tty) != *tty* ]] && which zsh >/dev/null 2>&1; then
 	case $- in
 		*i*) exec zsh;;
 	esac
